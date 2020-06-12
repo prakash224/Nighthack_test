@@ -1,0 +1,136 @@
+<h1>Student Score Report</h1>
+
+<% if !@college.nil? %>
+  
+<table style="float: left;">
+<thead>
+  <tr>
+    <th>College Name</th>
+    <th>Student Name</th>
+    <th>Average Score</th>
+    <th>Grade</th>
+    <th colspan="3"></th>
+  </tr>
+</thead>
+
+<tbody>
+  <% @students.each do |student| %>
+    <tr>
+      <td><%= @college.name %></td>
+      <td><%= student.name %></td>
+      <td><%= student.scores.average(:score).to_f %></td>
+      <% if student.scores.average(:score).to_f > 80 %>
+        <td><%= "O" %></td>
+      <% elsif student.scores.average(:score).to_f.between?(70, 80) %>
+        <td><%= "A" %></td>
+      <% elsif student.scores.average(:score).to_f.between?(60, 70) %>
+        <td><%= "B" %></td>
+      <% elsif student.scores.average(:score).to_f.between?(50, 60) %>
+        <td><%= "C" %></td>
+      <% elsif student.scores.average(:score).to_f.between?(35, 50) %>
+        <td><%= "D" %></td>
+      <% else %>
+        <td><%= "F" %></td>
+      <% end %>
+    </tr>
+    <% end %>
+</tbody>
+</table>
+  
+<% elsif !@department.nil? %>
+
+<table style="float: left;">
+  <thead>
+    <tr>
+      <th>Department Name</th>
+      <th>Student Name</th>
+      <th>Average Score</th>
+      <th>Grade</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= @department.name %></td>
+        <td><%= student.name %></td>
+        <td><%= student.scores.average(:score).to_f %></td>
+        <% if student.scores.average(:score).to_f > 80 %>
+          <td><%= "O" %></td>
+        <% elsif student.scores.average(:score).to_f.between?(70, 80) %>
+          <td><%= "A" %></td>
+        <% elsif student.scores.average(:score).to_f.between?(60, 70) %>
+          <td><%= "B" %></td>
+        <% elsif student.scores.average(:score).to_f.between?(50, 60) %>
+          <td><%= "C" %></td>
+        <% elsif student.scores.average(:score).to_f.between?(35, 50) %>
+          <td><%= "D" %></td>
+        <% else %>
+          <td><%= "F" %></td>
+        <% end %>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+<% else %>
+
+<table style="float: left;">
+  <thead>
+    <tr>
+      <th>Student Name</th>
+      <th>Average Score</th>
+      <th>Grade</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @student.name %></td>
+        <td><%= @avg_score %></td>
+        <% if @avg_score > 80 %>
+          <td><%= "O" %></td>
+        <% elsif @avg_score.between?(70, 80) %>
+          <td><%= "A" %></td>
+        <% elsif @avg_score.between?(60, 70) %>
+          <td><%= "B" %></td>
+        <% elsif @avg_score.between?(50, 60) %>
+          <td><%= "C" %></td>
+        <% elsif @avg_score.between?(35, 50) %>
+          <td><%= "D" %></td>
+        <% else %>
+          <td><%= "F" %></td>
+        <% end %>
+      </tr>
+  </tbody>
+</table>
+<% end %>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>Overall Average Score</th>
+        <th>Overall Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @overall_avg_score %></td>
+        <% if @overall_avg_score > 80 %>
+          <td><%= "O" %></td>
+        <% elsif @overall_avg_score.between?(70, 80) %>
+          <td><%= "A" %></td>
+        <% elsif @overall_avg_score.between?(60, 70) %>
+          <td><%= "B" %></td>
+        <% elsif @overall_avg_score.between?(50, 60) %>
+          <td><%= "C" %></td>
+        <% elsif @overall_avg_score.between?(35, 50) %>
+          <td><%= "D" %></td>
+        <% else %>
+          <td><%= "F" %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>

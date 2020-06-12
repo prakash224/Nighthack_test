@@ -1,0 +1,2 @@
+module Pages::StudentsHelper
+end

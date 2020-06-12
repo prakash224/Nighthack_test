@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  registration_number: 1
+  gender: MyString
+  dob: MyString
+  year_of_registration: 1
+  batch: MyString
+  department: one
+
+two:
+  name: MyString
+  registration_number: 1
+  gender: MyString
+  dob: MyString
+  year_of_registration: 1
+  batch: MyString
+  department: two

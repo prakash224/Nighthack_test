@@ -1,0 +1,10 @@
+<%= form_with(model: student, local: true) do |form| %>  
+  <div class="field">
+    <%= form.label :number_of_students%>
+    <%= form.text_field :number %>
+  </div>
+  <%= form.collection_select :department_id, Department.order(:name), :id, :name %>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

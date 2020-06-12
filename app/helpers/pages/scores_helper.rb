@@ -1,0 +1,2 @@
+module Pages::ScoresHelper
+end

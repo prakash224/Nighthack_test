@@ -1,0 +1,27 @@
+<h1>Create Scores</h1>
+<%= render 'form', score: @score %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Scores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subject</th>
+      <th>Score</th>
+      <th>Student</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scores.each do |score| %>
+      <tr>
+        <td><%= score.subject %></td>
+        <td><%= score.score %></td>
+        <td><%= score.student.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
