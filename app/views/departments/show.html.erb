@@ -12,7 +12,7 @@
 
 <p>
   <strong>College:</strong>
-  <%= @department.college_id %>
+  <%= @department.college.name %>
 </p>
 
 <%= link_to 'Edit', edit_department_path(@department) %> |

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :departments do
   end
   namespace :pages do
-    root to: 'students#index'
+  
     resources :students do
     end
     resources :scores do

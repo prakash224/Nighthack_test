@@ -65,6 +65,7 @@ class CollegesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_college
       @college = College.find(params[:id])
+      @departments = @college.departments
     end
 
     # Only allow a list of trusted parameters through.

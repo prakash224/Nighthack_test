@@ -2,6 +2,7 @@ class Pages::ScoresController < ApplicationController
     def index
         @scores = Score.all
     end
+    
     def create
         n = params["number"].to_i
         subjects = ["Maths", "Physics", "Social", "English", "Hindi"]

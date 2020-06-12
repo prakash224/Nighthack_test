@@ -2,12 +2,14 @@ class Pages::StudentsController < ApplicationController
     def index
       @students = Student.all
     end
+
     def create
       n = params["number"].to_i
       n.times do
+        dep_code = Department.find(params["department_id"]).code
         @student = Student.new
         @student.name = Faker::Name.name
-        @student.registration_number = Faker::Number.number(digits: 4)
+        @student.registration_number = dep_code + Faker::Number.number(digits: 4).to_s
         @student.gender = Faker::Gender.binary_type
         @student.dob = Faker::Date.forward(days: 23)
         @student.year_of_registration = Faker::Date.forward(days: 20).year

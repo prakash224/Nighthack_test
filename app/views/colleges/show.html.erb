@@ -10,5 +10,16 @@
   <%= @college.code %>
 </p>
 
+
+<% if @departments.any? %>
+  <h3>Departments</h3>
+  <% @departments.each do |department| %>
+    <table> 
+      <tr> 
+        <%= link_to department.name, department_path(department), style: 'margin:8px;' %>
+      </tr>
+    </table>
+  <% end %>
+<% end %>
 <%= link_to 'Edit', edit_college_path(@college) %> |
 <%= link_to 'Back', colleges_path %>

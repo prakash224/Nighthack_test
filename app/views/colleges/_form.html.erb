@@ -1,10 +1,10 @@
-<%= form_with(model: college, local: true) do |form| %>
-  <% if college.errors.any? %>
+<%= simple_form_for @college do |form| %>
+  <% if @college.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(college.errors.count, "error") %> prohibited this college from being saved:</h2>
+      <h2><%= pluralize(@college.errors.count, "error") %> prohibited this college from being saved:</h2>
 
       <ul>
-        <% college.errors.full_messages.each do |message| %>
+        <% @college.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>

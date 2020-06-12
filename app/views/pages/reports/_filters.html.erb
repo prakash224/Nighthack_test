@@ -1,8 +1,8 @@
 
 <%= form_tag :controller => 'reports', :action => 'create', :method => 'get' do %>
-    <br>
-    <%= select_tag 'college_id', options_for_select(@colleges.collect{ |u| [u.name, u.id] }), include_blank: 'None', class: 'col' %>
-    <%= select_tag 'department_id', options_for_select(@departments.collect{ |u| [u.name, u.id] }), include_blank: 'None', class: 'dep' %>
-    <%= select_tag 'student_id', options_for_select(@students.collect{ |u| [u.name, u.id] }), include_blank: 'None', class: 'stu' %>
-    <%= submit_tag "Filter", :action => 'create', :controller => 'reports'%>  
-  <% end %>
+  <br>
+  <%= select_tag 'college_id', options_for_select(@colleges.collect{ |u| [u.name, u.id] }), include_blank: 'None' %>
+  <%= select_tag 'department_id', options_for_select(@departments.collect{ |u| [u.name, u.id] }), include_blank: 'None' %>
+  <%= select_tag 'student_id', options_for_select(@students.collect{ |u| [u.name, u.id] }), include_blank: 'None' %>
+  <%= submit_tag "Filter", :action => 'create', :controller => 'reports'%>  
+<% end %>
